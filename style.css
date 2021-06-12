@@ -1,0 +1,31 @@
+body {
+  font: 13px "Lucida Grande", Tahoma, Verdana, sans-serif;
+}
+
+.table {
+	margin-bottom: 20px;
+	background: #D2B48C;
+	font-size: 15px;
+}
+.table th {
+	font-weight: bold;
+	padding: 7px;
+	background: #F5DEB3;
+	border: none;
+	text-align: left;
+}
+.table td {
+	padding: 7px;
+
+}
+
+.formStyle {
+	width: 100%;
+	text-align: center;
+}
+
+.formStyleColor {
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
