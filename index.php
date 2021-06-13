@@ -1,6 +1,6 @@
 <?
 	if(isset($_GET["butColor"])){
-				$butColor = $_GET["butColor"];
+		$butColor = $_GET["butColor"];
 	}
 	if(isset($_GET["width"])){
 		$width = $_GET["width"];
@@ -11,6 +11,10 @@
 	if(isset($_GET["sortColumn"])){
 		$sortColumn = (int)$_GET["sortColumn"];
 	}
+	$items = array(array("аМикронаушник", "1000", "10", "ООО 'Спиши беспалева'"),
+					   array("бРучки", "15", "30000", "ООО 'Черный след'"),
+					   array("гКаранаши", "1500", "20", "ООО 'Шедевр'"),
+					   array("вЛуна", "500000", "1", "ООО 'Млечный путь'"));
 
 ?>
 
@@ -22,11 +26,25 @@
 	<link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 	<?
-		$name_items = array("Название","Цена","Остаток на складе","Производитель");
-		$items = array(array("аМикронаушник", "1000", "10", "ООО 'Спиши беспалева'"),
-					   array("бРучки", "15", "30000", "ООО 'Черный след'"),
-					   array("гКаранаши", "1500", "20", "ООО 'Шедевр'"),
-					   array("вЛуна", "500000", "1", "ООО 'Млечный путь'"));
+		
+		
+	?>
+<style type="text/css">	
+	body {
+		background-color:<?echo $butColor?>;
+
+	}
+	.table {
+		width: <?echo $width."%"?>;
+	}
+
+</style>
+<body id="body"> 
+	<?
+	showTable($items, $sortColumn, $sortType, $butColor);
+	function showTable($items, $sortColumn, $sortType, $butColor)
+	{
+		$name_items = array("Название","Цена","Остаток на складе","Производитель");	
 		
 		setlocale(LC_ALL, 'ru_RU.UTF-8');
 		foreach ($items as $key => $value) {
@@ -43,19 +61,8 @@
 		var_dump($sortType);
 		if($_GET["sortType"] != 0)
 			array_multisort($sortingArray[$sortColumn], $sortType,$tableArray);
-		
+
 	?>
-<style type="text/css">	
-	body {
-		background-color:<?echo $butColor?>;
-
-	}
-	.table {
-		width: <?echo $width."%"?>;
-	}
-
-</style>
-<body id="body"> 
 	<table class='table' id="table">
 		<thead id="tHead">
 			<tr>
@@ -82,6 +89,9 @@
 		</tbody>
 
 	</table>
+	<?
+	}
+	?>
 	<a href="changeColor.php">Форма изменения обличия таблицы</a>	
 
 </body>
