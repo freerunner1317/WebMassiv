@@ -31,12 +31,7 @@
 			<p><input name="butColor" type="radio" value="#CC0073">Розовый</p>
 		</div>	
 
-		<div class="formStyleColor">
-			<a>Ширина таблицы</a>
-			<p><input name="width" type="radio" value="30" >30%</p>
-			<p><input name="width" type="radio" value="50">50%</p>
-			<p><input name="width" type="radio" value="100" checked>100%</p>
-		</div>	
+		
 		<p style="text-align: center;"><input type="submit" value="Выбрать"></p>
 	</form>
 

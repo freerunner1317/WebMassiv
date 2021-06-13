@@ -2,9 +2,7 @@
 	if(isset($_GET["butColor"])){
 		$butColor = $_GET["butColor"];
 	}
-	if(isset($_GET["width"])){
-		$width = $_GET["width"];
-	}
+
 	if(isset($_GET["sortType"]) && ($_GET["sortType"] != 0)){
 		$sortType = (($_GET['sortType'] == 2) ? SORT_DESC : SORT_ASC);
 	}
@@ -12,9 +10,9 @@
 		$sortColumn = (int)$_GET["sortColumn"];
 	}
 	$items = array(array("аМикронаушник", "1000", "10", "ООО 'Спиши беспалева'"),
-					   array("бРучки", "15", "30000", "ООО 'Черный след'"),
-					   array("гКаранаши", "1500", "20", "ООО 'Шедевр'"),
-					   array("вЛуна", "500000", "1", "ООО 'Млечный путь'"),
+					   array("Ручки", "15", "30000", "ООО 'Черный след'"),
+					   array("Каранаши", "1500", "20", "ООО 'Шедевр'"),
+					   array("Луна", "500000", "1", "ООО 'Млечный путь'"),
 					   array("Елки", "150", "230", "ООО 'Деревья'"),
 					   array("Лед", "230", "23", "ООО 'Мира'"),
 					   array("Варежки", "23", "4", "ООО 'Тепло'"));
@@ -36,9 +34,6 @@
 	body {
 		background-color:<?echo $butColor?>;
 
-	}
-	.table {
-		width: <?echo $width."%"?>;
 	}
 
 </style>
