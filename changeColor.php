@@ -11,8 +11,8 @@
 			<a> Выбор сотировки</a>
 			<select name="sortType">
 			  <option value="0">Как есть</option>
-			  <option value="1">По убыванию</option>
-			  <option value="2">По возрастанию</option>
+			  <option value="2">По убыванию</option>
+			  <option value="3">По возрастанию</option>
 			</select>
 
 			<a> Выбор столбца</a>

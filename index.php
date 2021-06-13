@@ -1,3 +1,19 @@
+<?
+	if(isset($_GET["butColor"])){
+				$butColor = $_GET["butColor"];
+	}
+	if(isset($_GET["width"])){
+		$width = $_GET["width"];
+	}
+	if(isset($_GET["sortType"]) && ($_GET["sortType"] != 0)){
+		$sortType = (($_GET['sortType'] == 2) ? SORT_DESC : SORT_ASC);
+	}
+	if(isset($_GET["sortColumn"])){
+		$sortColumn = (int)$_GET["sortColumn"];
+	}
+
+?>
+
 <!doctype html>
 <html>
 
@@ -7,21 +23,26 @@
 </head>
 	<?
 		$name_items = array("Название","Цена","Остаток на складе","Производитель");
-		$items = array(array("Микронаушник", "1000", "10", "ООО 'Спиши беспалева'"),
-					   array("Ручки", "15", "30000", "ООО 'Черный след'"),
-					   array("Каранаши", "1500", "20", "ООО 'Шедевр'"),
-					   array("Луна", "500000", "1", "ООО 'Млечный путь'"));
-
-		
-		if(isset($_GET["butColor"])){
-			$butColor = $_GET["butColor"];
-		}
-		if(isset($_GET["width"])){
-			$width = $_GET["width"];
-		}
+		$items = array(array("аМикронаушник", "1000", "10", "ООО 'Спиши беспалева'"),
+					   array("бРучки", "15", "30000", "ООО 'Черный след'"),
+					   array("гКаранаши", "1500", "20", "ООО 'Шедевр'"),
+					   array("вЛуна", "500000", "1", "ООО 'Млечный путь'"));
 		
 		setlocale(LC_ALL, 'ru_RU.UTF-8');
-		array_multisort($items[0], SORT_ASC, $items);
+		foreach ($items as $key => $value) {
+			$tableArray[$key]["name"] = $items[$key][0];
+			$tableArray[$key]["cost"] = $items[$key][1];
+			$tableArray[$key]["quantity"] = $items[$key][2];
+			$tableArray[$key]["manufacturer"] = $items[$key][3];
+
+			$sortingArray[0][$key] = $items[$key][0];
+			$sortingArray[1][$key] = $items[$key][1];
+			$sortingArray[2][$key] = $items[$key][2];
+			$sortingArray[3][$key] = $items[$key][3];
+		}
+		var_dump($sortType);
+		if($_GET["sortType"] != 0)
+			array_multisort($sortingArray[$sortColumn], $sortType,$tableArray);
 		
 	?>
 <style type="text/css">	
@@ -50,7 +71,7 @@
 		</thead>
 		<tbody id="tBody">
 		<?
-			foreach ($items as $key => $value) {
+			foreach ($tableArray as $key => $value) {
 				echo "<tr>";
 				foreach ($value as $key_item => $item) {
 					echo "<td>$item</td>";
