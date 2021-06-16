@@ -25,12 +25,17 @@
 	    		
 		</div>		
 		<div class="formStyleColor">
-			<a>Цвет фона страницы</a>
-			<p><input name="butColor" type="radio" value="#3914AF" >Синий</p>
-			<p><input name="butColor" type="radio" value="#FE0000">Красный</p>
-			<p><input name="butColor" type="radio" value="#CC0073">Розовый</p>
+			<a>Цвет фона заголовка</a>
+			<p><input name="headColor" type="radio" value="#3914AF" >Синий</p>
+			<p><input name="headColor" type="radio" value="#FE0000">Красный</p>
+			<p><input name="headColor" type="radio" value="#CC0073">Розовый</p>
 		</div>	
-
+		<div class="formStyleColor">
+			<a>Цвет фона остальных ячеек</a>
+			<p><input name="bodyColor" type="radio" value="#3914AF" >Синий</p>
+			<p><input name="bodyColor" type="radio" value="#FE0000">Красный</p>
+			<p><input name="bodyColor" type="radio" value="#CC0073">Розовый</p>
+		</div>	
 		
 		<p style="text-align: center;"><input type="submit" value="Выбрать"></p>
 	</form>

@@ -1,7 +1,11 @@
 <?
-	if(isset($_GET["butColor"])){
-		$butColor = $_GET["butColor"];
-	}
+	if(isset($_GET["headColor"])){
+		$headColor = $_GET["headColor"];
+	} else {$headColor = "#ed5a69";}
+
+	if(isset($_GET["bodyColor"])){
+		$bodyColor = $_GET["bodyColor"];
+	} else {$bodyColor = "#ffaf7a";}
 
 	if(isset($_GET["sortType"]) && ($_GET["sortType"] != 0)){
 		$sortType = (($_GET['sortType'] == 2) ? SORT_DESC : SORT_ASC);
@@ -9,6 +13,7 @@
 	if(isset($_GET["sortColumn"])){
 		$sortColumn = (int)$_GET["sortColumn"];
 	}
+	
 	$items = array(array("Микронаушник", "1000", "10", "ООО 'Спиши беспалева'"),
 					   array("Ручки", "15", "30000", "ООО 'Черный след'"),
 					   array("Каранаши", "1500", "20", "ООО 'Шедевр'"),
@@ -26,24 +31,24 @@
     <meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="/style.css">
 </head>
-	<?
-		
-		
-	?>
-<style type="text/css">	
-	body {
-		background-color:<?echo $butColor?>;
-
-	}
-
-</style>
 <body id="body"> 
 	<?
-	showTable($items, $sortColumn, $sortType, $butColor);
-	function showTable($items, $sortColumn, $sortType, $butColor)
+	showTable($items, $sortColumn, $sortType, $headColor, $bodyColor);
+	function showTable($items, $sortColumn, $sortType, $headColor, $bodyColor)
 	{
 		$name_items = array("Название","Цена","Остаток на складе","Производитель");	
-		
+
+		?> 
+			<style type="text/css">	
+				.table th {
+					background-color:<?echo $headColor?>;
+				}
+				.table td {
+					background-color:<?echo $bodyColor?>;
+				}
+
+			</style>
+		<?
 		setlocale(LC_ALL, 'ru_RU.UTF-8');
 		foreach ($items as $key => $value) {
 			$tableArray[$key]["name"] = $items[$key][0];

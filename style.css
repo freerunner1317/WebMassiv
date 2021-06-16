@@ -4,13 +4,12 @@ body {
 
 .table {
 	margin-bottom: 20px;
-	background: #D2B48C;
 	font-size: 15px;
 }
 .table th {
 	font-weight: bold;
 	padding: 7px;
-	background: #F5DEB3;
+	
 	border: none;
 	text-align: left;
 }
