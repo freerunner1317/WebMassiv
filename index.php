@@ -34,8 +34,6 @@
 <body id="body"> 
 	<?
 	if(isset($_GET["headColor"]) && isset($_GET["bodyColor"])){
-		$headColor = $_GET["headColor"];
-		$bodyColor = $_GET["bodyColor"];
 		showTable($items, $sortColumn, $sortType, $headColor, $bodyColor);
 	} elseif (isset($_GET["headColor"])) {
 		showTable($items, $sortColumn, $sortType, $headColor);
