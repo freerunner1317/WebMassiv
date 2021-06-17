@@ -1,11 +1,11 @@
 <?
 	if(isset($_GET["headColor"])){
 		$headColor = $_GET["headColor"];
-	} else {$headColor = "#ed5a69";}
+	} 
 
 	if(isset($_GET["bodyColor"])){
 		$bodyColor = $_GET["bodyColor"];
-	} else {$bodyColor = "#ffaf7a";}
+	} 
 
 	if(isset($_GET["sortType"]) && ($_GET["sortType"] != 0)){
 		$sortType = (($_GET['sortType'] == 2) ? SORT_DESC : SORT_ASC);
@@ -33,8 +33,20 @@
 </head>
 <body id="body"> 
 	<?
-	showTable($items, $sortColumn, $sortType, $headColor, $bodyColor);
-	function showTable($items, $sortColumn, $sortType, $headColor, $bodyColor)
+	if(isset($_GET["headColor"]) && isset($_GET["bodyColor"])){
+		$headColor = $_GET["headColor"];
+		$bodyColor = $_GET["bodyColor"];
+		showTable($items, $sortColumn, $sortType, $headColor, $bodyColor);
+	} elseif (isset($_GET["headColor"])) {
+		showTable($items, $sortColumn, $sortType, $headColor);
+	}elseif(isset($_GET["bodyColor"])){
+		showTable($items, $sortColumn, $sortType, $bodyColor);
+	} else{
+		showTable($items, $sortColumn,$sortType);
+	}
+
+
+	function showTable($items, $sortColumn, $sortType, $headColor = "#ed5a69", $bodyColor = "#ffaf7a")
 	{
 		$name_items = array("Название","Цена","Остаток на складе","Производитель");	
 
