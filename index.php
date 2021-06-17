@@ -33,16 +33,12 @@
 </head>
 <body id="body"> 
 	<?
+
 	if(isset($_GET["headColor"]) && isset($_GET["bodyColor"])){
 		showTable($items, $sortColumn, $sortType, $headColor, $bodyColor);
-	} elseif (isset($_GET["headColor"])) {
-		showTable($items, $sortColumn, $sortType, $headColor);
-	}elseif(isset($_GET["bodyColor"])){
-		showTable($items, $sortColumn, $sortType, $bodyColor);
-	} else{
-		showTable($items, $sortColumn,$sortType);
+	} else {
+		showTable($items, $sortColumn, $sortType);
 	}
-
 
 	function showTable($items, $sortColumn, $sortType, $headColor = "#ed5a69", $bodyColor = "#ffaf7a")
 	{
